@@ -11,11 +11,11 @@ const SignIn = () => {
     e.preventDefault();
     try {
       const response = await axios.post('/api/auth/signin', { email, password }, { withCredentials: true });
-      const navigate=useNavigate
+      const navigate=useNavigate;
       console.log('Signin successful:', response.data);
-      navigate("Home")
-      
-      // window.location.href = '/';
+      navigate('/');
+
+      window.location.href = '/';
        
       // Redirect or perform any other action upon successful signin
     } catch (error) {

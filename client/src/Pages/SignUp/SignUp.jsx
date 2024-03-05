@@ -49,12 +49,12 @@ const SignUp = () => {
           />
         </div>
         <div className="flex flex-col">
-          <label htmlFor="email" className="mb-1">Contact:</label>
+          <label htmlFor="contact" className="mb-1">Contact:</label>
           <input
             type="contact"
             id="contact"
             value={contact}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setcontact(e.target.value)}
             required
             className="border border-gray-300 rounded px-3 py-2"
           />
