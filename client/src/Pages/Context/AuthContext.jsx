@@ -3,12 +3,11 @@ import axios from 'axios';
 
 const AuthContext = createContext();
 
-export const useAuth = () => useContext(AuthContext);
-
 export const AuthProvider = ({ children }) => {
   const [userdata, setUser] = useState({});
 
   const fetchUser = async () => {
+    // console.log("aa gaya" ,userdata)
     try {
       const response = await axios.get('/api/profile/userdata', {
         withCredentials: true,
@@ -37,8 +36,10 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ userdata, logout }}>
+    <AuthContext.Provider value={{  userdata, logout }}>
       {children}
     </AuthContext.Provider>
   );
 };
+
+export const useAuth = () => useContext(AuthContext);

@@ -7,7 +7,8 @@ const { userdata } = useAuth();
 
   const navigate = useNavigate();
   useEffect(() => {
-    
+    // fetchUser();
+    // console.log(userdata);
     if(!userdata){
       navigate('/signin');
     }
