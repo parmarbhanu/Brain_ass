@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -10,12 +10,11 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/auth/signin', { email, password }, { withCredentials: true });
       const navigate=useNavigate;
+      const response = await axios.post('/api/auth/signin', { email, password }, { withCredentials: true });
       console.log('Signin successful:', response.data);
       navigate('/');
-
-      window.location.href = '/';
+      // window.location.href = '/';
        
       // Redirect or perform any other action upon successful signin
     } catch (error) {
@@ -53,7 +52,7 @@ const SignIn = () => {
         </div>
         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">Sign In</button>
       </form>
-      <p className="mt-4">Don't have an account? <a href="/signup" className="text-blue-500 hover:underline">Sign Up</a></p>
+      {/* <p className="mt-4">Don't have an account? <a href="/signup" className="text-blue-500 hover:underline">Sign Up</a></p> */}
     </div>
   );
 };
