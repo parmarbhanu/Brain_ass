@@ -13,3 +13,4 @@ router.get('/userdata', authMiddleware, async (req, res) => {
 });
 
 module.exports = router;
+

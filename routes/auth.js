@@ -37,6 +37,7 @@ router.post('/signin', async (req, res) => {
 });
 
 
+
 router.get('/logout', (req, res) => {
   try{
     res.cookie('token', '', { expires: new Date(0), httpOnly: true });
