@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -10,9 +11,12 @@ const SignIn = () => {
     e.preventDefault();
     try {
       const response = await axios.post('/api/auth/signin', { email, password }, { withCredentials: true });
+      const navigate=useNavigate
       console.log('Signin successful:', response.data);
-      window.location.href = '/';
-
+      navigate("Home")
+      
+      // window.location.href = '/';
+       
       // Redirect or perform any other action upon successful signin
     } catch (error) {
       setError(error.response.data.message);
