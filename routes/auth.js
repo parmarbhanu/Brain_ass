@@ -6,10 +6,10 @@ const bcrypt = require('bcrypt');
 
 router.post('/signup', async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, password ,contact} = req.body;
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await User.create({ username, email, password: hashedPassword });
+    const user = await User.create({ username, email, contact,password: hashedPassword });
     res.json({ user });
   } catch (error) {
     res.status(400).json({ message: error.message });

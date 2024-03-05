@@ -6,11 +6,11 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  // const [error, setError] = useState('');
+  const [contact,setcontact] = useState('');
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/auth/signup', { username, email, password }, { withCredentials: true });
+      const response = await axios.post('/api/auth/signup', { username, email, password,contact }, { withCredentials: true });
       console.log('Signup successful:', response.data);
       window.location.href = '/';
       // Redirect or show success message
@@ -43,6 +43,17 @@ const SignUp = () => {
             type="email"
             id="email"
             value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="border border-gray-300 rounded px-3 py-2"
+          />
+        </div>
+        <div className="flex flex-col">
+          <label htmlFor="email" className="mb-1">Contact:</label>
+          <input
+            type="contact"
+            id="contact"
+            value={contact}
             onChange={(e) => setEmail(e.target.value)}
             required
             className="border border-gray-300 rounded px-3 py-2"
